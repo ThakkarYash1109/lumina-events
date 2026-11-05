@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2b1f"/>
+      <stop offset="100%" stop-color="#241710"/>
+    </linearGradient>
+    <linearGradient id="goldRing5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5d2a4"/>
+      <stop offset="50%" stop-color="#d2b48c"/>
+      <stop offset="100%" stop-color="#997b52"/>
+    </linearGradient>
+    <clipPath id="circleClip5">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="url(#goldRing5)" />
+  <circle cx="100" cy="100" r="93" fill="url(#bgGrad5)" />
+  
+  <g clip-path="url(#circleClip5)">
+    <!-- Charcoal Blazer with Champagne Pocket Square -->
+    <path d="M32 210 L66 146 L100 160 L134 146 L168 210 Z" fill="#201a17"/>
+    <path d="M52 175 L68 175" stroke="#e5d2a4" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="86,146 114,146 100,165" fill="#f5f0e6"/>
+    <!-- Champagne Silk Tie -->
+    <polygon points="98,154 102,154 103,188 100,196 97,188" fill="#e5d2a4"/>
+    <!-- Neck -->
+    <rect x="86" y="118" width="28" height="30" rx="3" fill="#cf9d73"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="94" rx="34" ry="40" fill="#dfad83"/>
+    <!-- Ears -->
+    <circle cx="65" cy="95" r="7" fill="#cf9d73"/>
+    <circle cx="135" cy="95" r="7" fill="#cf9d73"/>
+    <!-- Classic Tapered Side-part Hair -->
+    <path d="M64 88 C62 56 82 48 100 48 C124 48 136 58 136 86 C128 72 118 68 100 68 C80 68 70 74 64 88 Z" fill="#1e130c"/>
+    <!-- Eyebrows -->
+    <path d="M78 85 Q88 82 95 86" stroke="#1e130c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M122 85 Q112 82 105 86" stroke="#1e130c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Eyes -->
+    <ellipse cx="86" cy="93" rx="4" ry="2.5" fill="#1e130c"/>
+    <ellipse cx="114" cy="93" rx="4" ry="2.5" fill="#1e130c"/>
+    <!-- Nose -->
+    <path d="M100 93 L97 106 L103 106" stroke="#bf8b61" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Confident Business Expression -->
+    <path d="M89 116 Q100 123 111 116" stroke="#875834" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
+

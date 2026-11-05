@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2b1f"/>
+      <stop offset="100%" stop-color="#241710"/>
+    </linearGradient>
+    <linearGradient id="goldRing3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5d2a4"/>
+      <stop offset="50%" stop-color="#d2b48c"/>
+      <stop offset="100%" stop-color="#997b52"/>
+    </linearGradient>
+    <clipPath id="circleClip3">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="url(#goldRing3)" />
+  <circle cx="100" cy="100" r="93" fill="url(#bgGrad3)" />
+  
+  <g clip-path="url(#circleClip3)">
+    <!-- Dark Navy / Espresso Tailored Suit with gold lapel pin -->
+    <path d="M32 210 L66 146 L100 162 L134 146 L168 210 Z" fill="#18131d"/>
+    <polygon points="86,146 114,146 100,165" fill="#f5f0e6"/>
+    <!-- Tie -->
+    <polygon points="98,154 102,154 104,188 100,196 96,188" fill="#d2b48c"/>
+    <circle cx="68" cy="170" r="3" fill="#e5d2a4"/>
+    <!-- Neck -->
+    <rect x="86" y="118" width="28" height="30" rx="3" fill="#dfad83"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="94" rx="34" ry="39" fill="#e8bb92"/>
+    <!-- Ears -->
+    <circle cx="65" cy="95" r="7" fill="#dfad83"/>
+    <circle cx="135" cy="95" r="7" fill="#dfad83"/>
+    <!-- Textured Short Crop Hair -->
+    <path d="M64 88 C63 60 76 52 100 52 C124 52 137 60 136 88 C130 76 120 72 100 71 C80 72 70 76 64 88 Z" fill="#2d1c13"/>
+    <!-- Eyebrows -->
+    <path d="M78 84 Q87 81 94 85" stroke="#2d1c13" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M122 84 Q113 81 106 85" stroke="#2d1c13" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Stylish Round Specs (Architect/QA aesthetic) -->
+    <circle cx="85" cy="93" r="11" fill="none" stroke="#d2b48c" stroke-width="1.8"/>
+    <circle cx="115" cy="93" r="11" fill="none" stroke="#d2b48c" stroke-width="1.8"/>
+    <line x1="96" y1="93" x2="104" y2="93" stroke="#d2b48c" stroke-width="1.8"/>
+    <!-- Eyes inside glasses -->
+    <ellipse cx="85" cy="93" rx="3.5" ry="2.5" fill="#2d1c13"/>
+    <ellipse cx="115" cy="93" rx="3.5" ry="2.5" fill="#2d1c13"/>
+    <!-- Nose -->
+    <path d="M100 93 L98 106 L103 106" stroke="#ca9b72" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Smile -->
+    <path d="M90 116 Q100 122 110 116" stroke="#996a45" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
+

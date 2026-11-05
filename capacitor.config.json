@@ -1,0 +1,17 @@
+{
+  "appId": "in.lumina.marketplace",
+  "appName": "Lumina Events",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "cleartext": true,
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2500,
+      "backgroundColor": "#3d2b1f",
+      "showSpinner": false
+    }
+  }
+}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Assignment & Startup Hub | Lumina Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .hub-hero {
+            padding: 8rem 0 3rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+        .canvas-card {
+            background: rgba(45, 30, 22, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+        }
+        .canvas-card h4 {
+            color: var(--accent);
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(210,180,140,0.2);
+            padding-bottom: 0.4rem;
+        }
+        .canvas-card ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+        .canvas-card ul li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        .canvas-card ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.8rem 1.4rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            border-color: var(--accent);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .cost-table th, .cost-table td {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .cost-table th {
+            background: rgba(30, 18, 12, 0.8);
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">LUMINA</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vendors.html">Vendors</a></li>
+                <li><a href="host-dashboard.html">Host Portal</a></li>
+                <li><a href="vendor-dashboard.html">Vendor Portal</a></li>
+                <li><a href="testing-dashboard.html">Testing QA</a></li>
+                <li><a href="academic-hub.html" class="active nav-btn">Sem 5 Hub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hub-hero">
+            <div class="container">
+                <span class="hero-tag">B.TECH 5TH SEMESTER INTEGRATED CAPSTONE</span>
+                <h1 class="hero-title" style="font-size: 3.5rem;">Academic & <span class="italic">Business Hub</span></h1>
+                <p class="hero-lead">Comprehensive integrated demonstration covering: Java OOP Core Architecture, E-Commerce Platform Flow, Software Testing Evidence, Public Cloud Deployment & Startup India Policies.</p>
+                <div style="margin-top: 1.5rem;">
+                    <button class="tab-btn active" onclick="showTab('startup')">1. Startup Policies & Canvas</button>
+                    <button class="tab-btn" onclick="showTab('java')">2. Java OOP & Concurrency</button>
+                    <button class="tab-btn" onclick="showTab('ecommerce')">3. E-Commerce & Escrow</button>
+                    <button class="tab-btn" onclick="showTab('testing')">4. Software Testing Strategy</button>
+                    <button class="tab-btn" onclick="showTab('cloud')">5. Cloud & Cost Analysis</button>
+                    <button class="tab-btn" onclick="showTab('team')">6. Founder Team</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 2.5rem 0 5rem;">
+
+            <!-- TAB 1: STARTUP POLICIES & BUSINESS -->
+            <div id="startup" class="tab-content active">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">Lean Canvas & Business Model Specification</h2>
+                    <p class="subtitle">Structured startup formulation based on Indian Wedding & Event Market (TAM ₹5.5 Lakh Crore).</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>1. Problem</h4>
+                        <ul>
+                            <li>68% of event hosts overpay due to opaque, fragmented pricing.</li>
+                            <li>Hosts waste 2–3 weeks hunting and coordinating vendors.</li>
+                            <li>Vendors lose 40% of potential bookings due to lack of digital visibility.</li>
+                            <li>Lead-gen sites (JustDial/Sulekha) offer no payment escrow, leading to last-minute vendor ghosting.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>2. Customer Segments</h4>
+                        <ul>
+                            <li><strong>Event Hosts:</strong> Wedding planners, families, corporate coordinators (22-55 yrs, ₹50k - ₹50L budget).</li>
+                            <li><strong>Service Vendors:</strong> Caterers, florists, photographers, AV/light teams across Ahmedabad, Surat, and Tier 1/2 cities.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>3. Unique Value Proposition</h4>
+                        <ul>
+                            <li><strong>For Hosts:</strong> Transparent upfront pricing, vetted luxury portfolios, 100% money-back escrow protection.</li>
+                            <li><strong>For Vendors:</strong> Direct booking pipeline, zero middleman extortion, guaranteed payouts upon milestone delivery.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>4. Solution & Unfair Advantage</h4>
+                        <ul>
+                            <li>Unified end-to-end booking completed in under 5 minutes.</li>
+                            <li>Curated luxury brand reputation and invitation-only vendor onboarding.</li>
+                            <li>Proprietary automated escrow contract and milestone release engine.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>5. Revenue Streams</h4>
+                        <ul>
+                            <li><strong>Platform Spread (Day 1):</strong> ~10% transaction commission (Vendor receives ₹9,000, Lumina adds ₹1,000, Host pays ₹11,000).</li>
+                            <li><strong>Premium Tier (Month 2+):</strong> ₹2,999/mo featured listing & analytics.</li>
+                            <li><strong>Lumina Guarantee (Month 6+):</strong> 2% escrow insurance warranty.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>6. DPIIT & Compliance Readiness</h4>
+                        <ul>
+                            <li>Eligible for Startup India DPIIT recognition (Entity age &lt; 10 years, turnover &lt; ₹100 Cr).</li>
+                            <li>Section 80-IAC 3-year tax exemption roadmap.</li>
+                            <li>Digital Personal Data Protection (DPDP) Act 2023 compliance with explicit consent and zero dark patterns.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SWOT Analysis -->
+                <div style="background: rgba(45,30,22,0.6); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; margin-top: 2rem;">
+                    <h3 class="title-serif" style="color: var(--accent); font-size: 1.8rem; margin-bottom: 1rem;">SWOT & PESTEL Analysis Matrix</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <strong style="color: #81c784;">STRENGTHS</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Curated luxury positioning, transparent pricing, verified escrow, zero telephone haggling, high aesthetic trust factor.</p>
+                        </div>
+                        <div>
+                            <strong style="color: #ffb74d;">WEAKNESSES</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Initial two-sided marketplace chicken-and-egg supply liquidity in new cities; manual vetting overhead during beta.</p>
+                        </div>
+                        <div>
+                            <strong style="color: #64b5f6;">OPPORTUNITIES</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Pan-India expansion to 50+ cities, ₹820 Cr SOM target by Year 3, corporate retreats and international NRI destination weddings (UAE, Singapore).</p>
+                        </div>
+                        <div>
+                            <strong style="color: #e57373;">THREATS</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.3rem;">Offline collusion between hosts and vendors to bypass platform take-rate; countered through escrow insurance and Lumina Guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: JAVA OOP ARCHITECTURE -->
+            <div id="java" class="tab-content">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">Java Programming Architecture & OOP Design</h2>
+                    <p class="subtitle">Implementation of enterprise Java 21 Object-Oriented Principles, Multithreading, and Custom Exceptions.</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>OOP Design Principles</h4>
+                        <ul>
+                            <li><strong>Encapsulation:</strong> Private members, strict accessor validation across User, Booking, and Payment models.</li>
+                            <li><strong>Inheritance & Polymorphism:</strong> Abstract <code>User</code> class subclassed into <code>HostUser</code> and <code>VendorUser</code> overriding <code>getRoleDescription()</code>.</li>
+                            <li><strong>Interface Segregation:</strong> Distinct contracts for <code>MarketplaceService</code> and <code>PaymentService</code>.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Custom Exception Handling</h4>
+                        <ul>
+                            <li><code>VendorNotFoundException</code>: Thrown when an invalid partner ID is accessed.</li>
+                            <li><code>BookingConflictException</code>: Prevents double-booking a vendor on identical dates.</li>
+                            <li><code>InvalidBookingException</code>: Enforces boundary rules on guest counts and past dates.</li>
+                            <li><code>PaymentFailedException</code>: Guards escrow state transitions and sandbox declines.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Multithreading Concurrency</h4>
+                        <ul>
+                            <li><code>NotificationDispatcher</code>: Asynchronous background worker pool decoupled from REST threads.</li>
+                            <li>Utilizes <code>LinkedBlockingQueue&lt;NotificationTask&gt;</code> and <code>Executors.newFixedThreadPool(2)</code>.</li>
+                            <li>Dispatches confirmation alerts and vendor push updates with zero API latency.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>File Management & Persistence</h4>
+                        <ul>
+                            <li><code>FileDataManager</code>: Implements singleton pattern for file-based state serialization.</li>
+                            <li>Saves and loads marketplace state directly to <code>lumina_marketplace_data.json</code>.</li>
+                            <li>Enables persistent state between server restarts without requiring complex SQL installations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Code Architecture Snippet -->
+                <div style="background: rgba(30,18,12,0.9); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; font-family: monospace; font-size: 0.85rem; color: var(--accent); overflow-x: auto;">
+// Polymorphism Example in Lumina Java Core
+public abstract class User implements Serializable {
+    protected String id, fullName, email, phone, role;
+    public abstract String getRoleDescription(); // Implemented uniquely by HostUser & VendorUser
+}
+
+public class VendorUser extends User {
+    @Override
+    public String getRoleDescription() {
+        return "Lumina Verified Vendor: Providing top-tier " + category + " services with transparent escrow payments.";
+    }
+}
+                </div>
+            </div>
+
+            <!-- TAB 3: E-COMMERCE & ESCROW -->
+            <div id="ecommerce" class="tab-content">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">E-Commerce Marketplace Flow & Escrow Security</h2>
+                    <p class="subtitle">Slide 11 Commission Engine and ethical e-commerce architecture.</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>The 10% Spread Model</h4>
+                        <ul>
+                            <li>Vendor quotes base service fee (e.g. ₹1,00,000 for luxury catering).</li>
+                            <li>Lumina adds 10% platform spread (₹10,000) for security, vetting, and warranty.</li>
+                            <li>Host pays total ₹1,10,000 into secure escrow sandbox.</li>
+                            <li>Vendor receives guaranteed payout of ₹1,00,000 upon confirmed event completion.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Anti-Fraud & Fake Review Prevention</h4>
+                        <ul>
+                            <li><strong>Cryptographic Booking Linkage:</strong> Reviews can only be submitted against a verified <code>bookingId</code>.</li>
+                            <li>Unverified submissions are rejected or flagged with <code>verifiedStayOrBooking = false</code>.</li>
+                            <li>Prevents competitor smear campaigns and synthetic paid ratings.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Ethical UI & Anti-Dark Patterns</h4>
+                        <ul>
+                            <li><strong>Zero Drip Pricing:</strong> What the host sees on the card is the final price including all taxes and fees.</li>
+                            <li><strong>No Pre-Checked Addons:</strong> Additional protection packages require deliberate user opt-in.</li>
+                            <li><strong>Clear Cancellation Rules:</strong> Escrow refund rules are displayed upfront before booking confirmation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: TESTING STRATEGY -->
+            <div id="testing" class="tab-content">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">Software Testing Strategy & Quality Assurance</h2>
+                    <p class="subtitle">Complete test life-cycle covering black-box and white-box test design.</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>Boundary Value Analysis (BVA)</h4>
+                        <ul>
+                            <li>Guest Count test cases: 0 (rejected), 1 (accepted), 5000 (accepted), 5001 (rejected).</li>
+                            <li>Budget filter test cases: Minimum boundary checks and upper search boundaries.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Equivalence Partitioning (EP)</h4>
+                        <ul>
+                            <li>Valid category partitions (Florals, Catering, Photography, Entertainment, Venues).</li>
+                            <li>Invalid date partitions (Past dates rejected via <code>InvalidBookingException</code>).</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Non-Functional Load & Stress</h4>
+                        <ul>
+                            <li>Tested 100 simultaneous in-memory searches executing in under 20ms.</li>
+                            <li>Asynchronous thread-pool stress testing with concurrent notifications.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="testing-dashboard.html" class="tab-btn" style="text-decoration: none; display: inline-block;">Open Interactive Testing Dashboard & Live Runner →</a>
+                </div>
+            </div>
+
+            <!-- TAB 5: CLOUD DEPLOYMENT & COSTING -->
+            <div id="cloud" class="tab-content">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">Cloud Architecture & Cost Modeling</h2>
+                    <p class="subtitle">Public Cloud deployment blueprints (AWS / Azure / GCP) with Docker containerization.</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>Cloud Component Architecture</h4>
+                        <ul>
+                            <li><strong>Frontend Layer:</strong> Static assets hosted on AWS S3 / Cloudflare Pages behind global CDN.</li>
+                            <li><strong>API & Backend Layer:</strong> Containerized Java 21 microservice running on AWS ECS / Google Cloud Run.</li>
+                            <li><strong>Database:</strong> Managed PostgreSQL (AWS RDS / Neon) with point-in-time recovery.</li>
+                            <li><strong>Object Storage:</strong> AWS S3 bucket for vendor portfolio images and automated nightly state backups.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Security & IAM</h4>
+                        <ul>
+                            <li>Enforced HTTPS/TLS 1.3 with automated Let's Encrypt certificates.</li>
+                            <li>Environment variables managed via AWS Secrets Manager (zero hardcoded secrets).</li>
+                            <li>Role-Based Access Control (RBAC) separating Host, Vendor, and Admin permissions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Monthly Cloud Cost Estimate Table -->
+                <h3 class="title-serif" style="color: var(--accent); font-size: 1.8rem; margin: 2rem 0 0.8rem;">Monthly Cloud Infrastructure Cost Projections (INR)</h3>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>User Scale</th>
+                            <th>Compute (Container/VM)</th>
+                            <th>Database (Managed SQL)</th>
+                            <th>Object Storage (S3/CDN)</th>
+                            <th>Monitoring & Bandwidth</th>
+                            <th>Total Monthly Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>100 Users (MVP)</strong></td>
+                            <td>₹0 (Cloud Run / Free Tier)</td>
+                            <td>₹0 (Neon Free Tier)</td>
+                            <td>₹40 (AWS S3 standard)</td>
+                            <td>₹0 (Included)</td>
+                            <td><strong>₹40 / month</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1,000 Users (Growth)</strong></td>
+                            <td>₹1,800 (AWS App Runner / ECS)</td>
+                            <td>₹1,200 (db.t4g.micro RDS)</td>
+                            <td>₹350 (S3 + CloudFront)</td>
+                            <td>₹250 (CloudWatch)</td>
+                            <td><strong>₹3,600 / month</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>10,000 Users (Scale)</strong></td>
+                            <td>₹9,500 (Auto-scaled ECS cluster)</td>
+                            <td>₹6,000 (Multi-AZ RDS)</td>
+                            <td>₹2,100 (500GB S3 + CDN)</td>
+                            <td>₹1,200 (Datadog / APM)</td>
+                            <td><strong>₹18,800 / month</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TAB 6: FOUNDER TEAM -->
+            <div id="team" class="tab-content">
+                <div class="section-heading">
+                    <h2 class="title-serif" style="font-size: 2.2rem;">Lumina Founding Team & Role Allocation</h2>
+                    <p class="subtitle">Semester 5 Integrated Assignment Core Contributors & Engineering Specializations.</p>
+                </div>
+
+                <div class="canvas-grid">
+                    <div class="canvas-card">
+                        <h4>Yash Thakkar</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 242466</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">Team Lead & Product Development</div>
+                        <ul>
+                            <li>Overall project coordination, system architecture, and milestone delivery.</li>
+                            <li>End-to-end frontend integration and responsive luxury styling consistency.</li>
+                            <li>Cross-module synchronization connecting Java services to client portals.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Dhruvsinh Rathod</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 241204</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">Java Backend Developer</div>
+                        <ul>
+                            <li>Java 21 OOP core application architecture, encapsulation, and inheritance.</li>
+                            <li>Polymorphic domain modeling (`User`, `HostUser`, `VendorUser`).</li>
+                            <li>Multithreaded `NotificationDispatcher` daemon queue and file persistence manager.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Harsh Chauhan</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 241163</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">Testing & QA Lead</div>
+                        <ul>
+                            <li>Software test planning and design of 30+ structured automated test cases.</li>
+                            <li>Equivalence Partitioning, Boundary Value Analysis, and Decision Table verification.</li>
+                            <li>Defect tracking, regression test execution, and real-time QA reporting.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Rajdeep Gadhvi</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 241167</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">Cloud & DevOps Lead</div>
+                        <ul>
+                            <li>Multi-stage Dockerfile containerization (Temurin JDK 21 build to JRE 21 runtime).</li>
+                            <li>Docker Compose configuration and GitHub Actions CI/CD automated pipeline.</li>
+                            <li>Cloud architecture blueprints, security policies, and 3-tier cloud cost estimation.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Aryan Prajapati</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 241200</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">E-Commerce & Business Lead</div>
+                        <ul>
+                            <li>Event vendor marketplace workflow, booking lifecycle, and search filtering.</li>
+                            <li>10% platform commission spread formulation (`Slide 11`) and escrow payments.</li>
+                            <li>Lean Canvas, Business Model Canvas, SWOT, PESTEL, and DPIIT startup roadmap.</li>
+                        </ul>
+                    </div>
+                    <div class="canvas-card">
+                        <h4>Vansh Patel</h4>
+                        <div style="font-size: 0.85rem; color: #81c784; font-weight: 600; margin-bottom: 0.3rem;">Enrollment No: 242428</div>
+                        <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 500;">UI/UX & Documentation Lead</div>
+                        <ul>
+                            <li>Preservation of Lumina luxury dark chocolate (`#3d2b1f`) and gold visual aesthetics.</li>
+                            <li>Responsive interface optimization across desktop, tablet, and mobile views.</li>
+                            <li>Project documentation, academic viva pitch preparation, and submission artifacts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

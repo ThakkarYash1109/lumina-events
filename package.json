@@ -1,0 +1,19 @@
+{
+  "name": "lumina-events-marketplace",
+  "version": "1.0.0",
+  "description": "Lumina Luxury Event Vendor Marketplace - B.Tech Semester 5 Integrated Assignment Capstone",
+  "main": "index.html",
+  "scripts": {
+    "start": "node -e \"console.log('Lumina Web & Hybrid Engine ready')\"",
+    "build": "node -e \"console.log('Building Lumina production assets...')\"",
+    "mobile:prepare": "npx cap copy && npx cap sync",
+    "mobile:open": "npx cap open android"
+  },
+  "author": "Yash Thakkar, Dhruvsinh Rathod, Harsh Chauhan, Rajdeep Gadhvi, Aryan Prajapati, Vansh Patel",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  }
+}

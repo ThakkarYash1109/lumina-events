@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Schedule | Lumina Events</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">LUMINA</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Events</a></li>
+                <li><a href="events.html" class="active">Calendar</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="inquire.html" class="nav-btn">Inquire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Events Hero -->
+        <section class="hero events-hero">
+            <div class="hero-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80"
+                alt="Events Schedule" class="hero-background">
+            <div class="container hero-content">
+                <span class="hero-tag">THE MASTER SCHEDULE</span>
+                <h1 class="hero-title">
+                    Timeless <br>
+                    <span class="italic">Moments</span>.
+                </h1>
+                <p class="hero-lead">Plan your participation in our upcoming curated experiences.</p>
+            </div>
+        </section>
+
+        <!-- Categories & Calendar Section -->
+        <section class="schedule-section">
+            <div class="container">
+                <div class="schedule-header flex-row">
+                    <div class="schedule-title">
+                        <h2 class="title-serif">2026 Schedule</h2>
+                        <p class="subtitle">Filter by category to find your next inspiration.</p>
+                    </div>
+                    <!-- Calendar Controls -->
+                    <div class="calendar-nav">
+                        <button class="cal-nav-btn" id="prev-month">&larr; Previous</button>
+                        <span class="current-month">MAY 2026</span>
+                        <button class="cal-nav-btn" id="next-month">Next &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Category Filters (Re-using logic from index but styled for this page) -->
+                <div class="filter-controls categories-nav">
+                    <input type="radio" name="event-filter" id="all-events" checked>
+                    <label for="all-events">All Events</label>
+                    <input type="radio" name="event-filter" id="cat-gala">
+                    <label for="cat-gala">Galas</label>
+                    <input type="radio" name="event-filter" id="cat-corporate">
+                    <label for="cat-corporate">Corporate</label>
+                    <input type="radio" name="event-filter" id="cat-private">
+                    <label for="cat-private">Private</label>
+                    <input type="radio" name="event-filter" id="cat-workshop">
+                    <label for="cat-workshop">Workshops</label>
+                </div>
+
+                <!-- Calendar Grid View -->
+                <div class="calendar-view-grid">
+                    <div class="calendar-sidebar">
+                        <div class="mini-month">
+                            <h4>MAY</h4>
+                            <div class="mini-grid">
+                                <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                                <span class="dim">27</span><span class="dim">28</span><span class="dim">29</span><span
+                                    class="dim">30</span><span class="dim">1</span><span>2</span><span>3</span>
+                                <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                                <span>11</span><span>12</span><span>13</span><span>14</span><span
+                                    class="active">15</span><span>16</span><span>17</span>
+                                <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+                                <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-info">
+                            <h5>Key Venues</h5>
+                            <ul>
+                                <li>The Glass House, NY</li>
+                                <li>Château de Villette</li>
+                                <li>Aman Kyoto Gardens</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="calendar-list-view">
+                        <div class="event-row gala">
+                            <div class="event-date">
+                                <span class="day">15</span>
+                                <span class="tag">FRI</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=150&q=80"
+                                alt="Starlight Soirée" class="event-thumbnail">
+                            <div class="event-detail">
+                                <span class="event-cat">GALA</span>
+                                <h3>Starlight Soirée</h3>
+                                <p>Grand Opera House, Vienna • 19:30</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="#" class="btn-text">View Details &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="event-row corporate">
+                            <div class="event-date">
+                                <span class="day">22</span>
+                                <span class="tag">FRI</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&w=150&q=80"
+                                alt="Digital Horizon" class="event-thumbnail">
+                            <div class="event-detail">
+                                <span class="event-cat">CORPORATE</span>
+                                <h3>Digital Horizon 2026</h3>
+                                <p>Innovation Center, SF • 09:00</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="#" class="btn-text">View Details &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="event-row private">
+                            <div class="event-date">
+                                <span class="day">28</span>
+                                <span class="tag">THU</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=150&q=80"
+                                alt="The Estate Dinner" class="event-thumbnail">
+                            <div class="event-detail">
+                                <span class="event-cat">PRIVATE</span>
+                                <h3>The Estate Dinner</h3>
+                                <p>Private Villa, Tuscany • 18:00</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="#" class="btn-text">View Details &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="event-row workshop">
+                            <div class="event-date">
+                                <span class="day">02</span>
+                                <span class="tag">JUN</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=150&q=80"
+                                alt="Masterclass Lighting" class="event-thumbnail">
+                            <div class="event-detail">
+                                <span class="event-cat">WORKSHOP</span>
+                                <h3>Masterclass: The Art of Lighting</h3>
+                                <p>Lumina Studios, Paris • 10:00</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="#" class="btn-text">View Details &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter / Booking Call to Action -->
+        <section class="booking-cta">
+            <div class="container flex-row">
+                <div class="cta-text">
+                    <h2 class="title-serif">Secure Your Date</h2>
+                    <p>Our calendar for 2026 is filling rapidly. Reach out to discuss your vision.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="inquire.html" class="btn btn-primary">Book Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <p class="stat-label">Events Managed</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <p class="stat-label">Premium Venues</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <p class="stat-label">Client Satisfaction</p>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-number">4.6/5</span>
+                    <p class="stat-label">Client Rating</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">LUMINA</a>
+                    <p class="footer-desc">Curating exceptional experiences and unforgettable moments with unparalleled elegance and precision.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Calendar</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h5 class="footer-heading">Contact</h5>
+                    <ul>
+                        <li><a href="mailto:inquire@luminaevents.com">inquire@luminaevents.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>Beverly Hills, CA 90210</li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h5 class="footer-heading">Follow</h5>
+                    <ul>
+                        <li><a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.5 20H5.5V9H8.5V20M7 7.5A1.5 1.5 0 0 1 5.5 6A1.5 1.5 0 0 1 7 4.5A1.5 1.5 0 0 1 8.5 6A1.5 1.5 0 0 1 7 7.5M10.5 20H13.5V14.5C13.5 13.5 13.8 12.8 14.7 12.8C15.6 12.8 16 13.4 16 14.5V20H19V14C19 11.8 17.8 10.5 15.5 10.5C14 10.5 13.1 11.2 12.5 12V10.7H9.5C9.5 11.5 9.5 20 9.5 20H10.5Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16.02 6.02,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16.02,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+                                </svg></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 Lumina Events. Designed for Elegance.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Event Data for 2026
+        const eventsData = {
+            0: [ // January
+                { day: 15, title: "New Year Gala", category: "gala", venue: "Grand Ballroom, NYC", time: "19:30" },
+                { day: 28, title: "Tech Summit 2026", category: "corporate", venue: "Innovation Hub, LA", time: "09:00" }
+            ],
+            1: [ // February
+                { day: 10, title: "Valentine Soirée", category: "private", venue: "Rose Garden Estate", time: "20:00" },
+                { day: 22, title: "Design Workshop", category: "workshop", venue: "Lumina Studios, Paris", time: "14:00" }
+            ],
+            2: [ // March
+                { day: 5, title: "Spring Awakening Gala", category: "gala", venue: "Botanical Gardens", time: "18:00" },
+                { day: 18, title: "Leadership Forum", category: "corporate", venue: "Business Center, SF", time: "10:00" }
+            ],
+            3: [ // April
+                { day: 12, title: "Easter Elegance", category: "private", venue: "Lakeside Manor", time: "12:00" },
+                { day: 25, title: "Floral Design Masterclass", category: "workshop", venue: "Lumina Studios, Paris", time: "11:00" }
+            ],
+            4: [ // May
+                { day: 15, title: "Starlight Soirée", category: "gala", venue: "Grand Opera House, Vienna", time: "19:30" },
+                { day: 22, title: "Digital Horizon 2026", category: "corporate", venue: "Innovation Center, SF", time: "09:00" },
+                { day: 28, title: "The Estate Dinner", category: "private", venue: "Private Villa, Tuscany", time: "18:00" }
+            ],
+            5: [ // June
+                { day: 2, title: "Masterclass: The Art of Lighting", category: "workshop", venue: "Lumina Studios, Paris", time: "10:00" },
+                { day: 20, title: "Summer Solstice Gala", category: "gala", venue: "Beachfront Pavilion", time: "20:00" }
+            ],
+            6: [ // July
+                { day: 4, title: "Independence Ball", category: "gala", venue: "Historic Manor", time: "19:00" },
+                { day: 15, title: "CEO Retreat", category: "corporate", venue: "Mountain Resort", time: "08:00" }
+            ],
+            7: [ // August
+                { day: 8, title: "Summer Wedding Showcase", category: "private", venue: "Coastal Estate", time: "16:00" },
+                { day: 30, title: "Cocktail Masterclass", category: "workshop", venue: "Lumina Studios, Paris", time: "15:00" }
+            ],
+            8: [ // September
+                { day: 12, title: "Autumn Harvest Gala", category: "gala", venue: "Vineyard Estate", time: "18:30" },
+                { day: 25, title: "Marketing Summit", category: "corporate", venue: "Convention Center", time: "09:30" }
+            ],
+            9: [ // October
+                { day: 3, title: "Halloween Masquerade", category: "gala", venue: "Grand Hall", time: "21:00" },
+                { day: 17, title: "Wedding Planning Workshop", category: "workshop", venue: "Lumina Studios, Paris", time: "11:00" }
+            ],
+            10: [ // November
+                { day: 7, title: "Charity Gala Night", category: "gala", venue: "Opera House", time: "19:00" },
+                { day: 20, title: "Corporate Awards", category: "corporate", venue: "Grand Ballroom", time: "18:00" }
+            ],
+            11: [ // December
+                { day: 5, title: "Holiday Winter Gala", category: "gala", venue: "Ice Palace", time: "20:00" },
+                { day: 12, title: "Year-End Private Dinner", category: "private", venue: "Private Penthouse", time: "19:30" },
+                { day: 31, title: "New Year's Eve Ball", category: "gala", venue: "Grand Ballroom, NYC", time: "22:00" }
+            ]
+        };
+
+        // Month names
+        const monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+
+        // Current date state
+        let currentMonth = 4; // May (0-indexed)
+        let currentYear = 2026;
+        let selectedCategory = 'all';
+
+        // Initialize calendar
+        document.addEventListener('DOMContentLoaded', function () {
+            renderCalendar();
+            renderEvents();
+            setupEventListeners();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Previous button - using ID
+            document.getElementById('prev-month').addEventListener('click', function () {
+                navigateMonth(-1);
+            });
+
+            // Next button - using ID
+            document.getElementById('next-month').addEventListener('click', function () {
+                navigateMonth(1);
+            });
+
+            // Category filters
+            const filterInputs = document.querySelectorAll('input[name="event-filter"]');
+            filterInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    selectedCategory = this.id.replace('cat-', '');
+                    if (selectedCategory === 'all-events') selectedCategory = 'all';
+                    renderEvents();
+                });
+            });
+        }
+
+        // Navigate between months
+        function navigateMonth(direction) {
+            currentMonth += direction;
+
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+
+            renderCalendar();
+            renderEvents();
+        }
+
+        // Render calendar
+        function renderCalendar() {
+            const monthDisplay = document.querySelector('.current-month');
+            monthDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+            // Also update the mini calendar month heading
+            const miniMonthHeading = document.querySelector('.mini-month h4');
+            miniMonthHeading.textContent = monthNames[currentMonth].substring(0, 3).toUpperCase();
+
+            // Get first day of month and total days
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Get today's date for highlighting
+            const today = new Date();
+            const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+            const todayDate = today.getDate();
+
+            // Generate mini calendar grid
+            const miniGrid = document.querySelector('.mini-grid');
+            let html = '<span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>';
+
+            // Previous month days
+            const prevMonthDays = new Date(currentYear, currentMonth, 0).getDate();
+            for (let i = firstDay - 1; i >= 0; i--) {
+                html += `<span class="dim">${prevMonthDays - i}</span>`;
+            }
+
+            // Current month days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isToday = isCurrentMonth && day === todayDate;
+                const hasEvent = eventsData[currentMonth] && eventsData[currentMonth].some(e => e.day === day);
+
+                html += `<span class="${isToday ? 'active' : ''} ${hasEvent ? 'has-event' : ''}" data-day="${day}">${day}</span>`;
+            }
+
+            // Next month days to fill the grid
+            const totalCells = firstDay + daysInMonth;
+            const remainingCells = totalCells > 35 ? 42 - totalCells : 35 - totalCells;
+            for (let i = 1; i <= remainingCells; i++) {
+                html += `<span class="dim">${i}</span>`;
+            }
+
+            miniGrid.innerHTML = html;
+
+            // Add click handlers to calendar days with events
+            document.querySelectorAll('.mini-grid .has-event').forEach(span => {
+                span.style.cursor = 'pointer';
+                span.style.borderRadius = '50%';
+                span.style.background = 'var(--accent)';
+                span.style.color = 'var(--bg-secondary)';
+                span.addEventListener('click', function () {
+                    const day = parseInt(this.dataset.day);
+                    scrollToEvent(day);
+                });
+            });
+        }
+
+        // Render events for current month
+        function renderEvents() {
+            const calendarListView = document.querySelector('.calendar-list-view');
+            const monthEvents = eventsData[currentMonth] || [];
+
+            // Filter events by category
+            let filteredEvents = monthEvents;
+            if (selectedCategory !== 'all') {
+                filteredEvents = monthEvents.filter(event => event.category === selectedCategory);
+            }
+
+            if (filteredEvents.length === 0) {
+                calendarListView.innerHTML = `
+                    <div class="event-row" style="grid-template-columns: 1fr; text-align: center; padding: 4rem;">
+                        <p style="color: var(--text-muted);">No events found for this category in ${monthNames[currentMonth]}.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            filteredEvents.forEach(event => {
+                const categoryLabel = event.category.toUpperCase();
+                const imageUrl = getEventImage(event.category);
+
+                html += `
+                    <div class="event-row ${event.category}">
+                        <div class="event-date">
+                            <span class="day">${event.day}</span>
+                            <span class="tag">${monthNames[currentMonth].substring(0, 3).toUpperCase()}</span>
+                        </div>
+                        <img src="${imageUrl}" alt="${event.title}" class="event-thumbnail">
+                        <div class="event-detail">
+                            <span class="event-cat">${categoryLabel}</span>
+                            <h3>${event.title}</h3>
+                            <p>${event.venue} • ${event.time}</p>
+                        </div>
+                        <div class="event-action">
+                            <a href="#" class="btn-text">View Details →</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            calendarListView.innerHTML = html;
+        }
+
+        // Get event image based on category
+        function getEventImage(category) {
+            const images = {
+                gala: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=150&q=80",
+                corporate: "https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&w=150&q=80",
+                private: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=150&q=80",
+                workshop: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=150&q=80"
+            };
+            return images[category] || images.gala;
+        }
+
+        // Scroll to event when clicking calendar day
+        function scrollToEvent(day) {
+            const events = document.querySelectorAll('.event-row');
+            events.forEach(event => {
+                const eventDay = event.querySelector('.event-date .day');
+                if (eventDay && parseInt(eventDay.textContent) === day) {
+                    event.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    event.style.background = 'rgba(210, 180, 140, 0.1)';
+                    setTimeout(() => {
+                        event.style.background = '';
+                    }, 2000);
+                }
+            });
+        }
+    </script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <script src="chat-widget.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

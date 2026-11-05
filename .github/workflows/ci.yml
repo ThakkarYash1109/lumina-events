@@ -1,0 +1,35 @@
+name: Lumina Continuous Integration & Automated Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Compile Lumina Java Core
+      run: |
+        mkdir -p backend-java/bin
+        javac -d backend-java/bin $(find backend-java/src -name "*.java")
+
+    - name: Run 30-Test Automated Suite (JUnit / Regression)
+      run: |
+        java -cp backend-java/bin com.lumina.test.LuminaTestSuite
+
+    - name: Verify Docker Container Build
+      run: |
+        docker build -t lumina-marketplace:ci-test .
+

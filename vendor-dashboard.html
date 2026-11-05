@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Partner Portal & Earnings | Lumina Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-header {
+            padding: 8rem 0 3rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+        .stat-card {
+            background: rgba(45, 30, 22, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-family: var(--font-serif);
+            color: var(--accent);
+            margin: 0.5rem 0 0.2rem;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .table-container {
+            background: rgba(45, 30, 22, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .luxury-table th {
+            padding: 1.2rem 1.5rem;
+            background: rgba(30, 18, 12, 0.8);
+            color: var(--accent);
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+        .luxury-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .badge-verified { background: rgba(76, 175, 80, 0.2); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.4); }
+        .btn-luxury {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">LUMINA</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vendors.html">Vendors</a></li>
+                <li><a href="host-dashboard.html">Host Portal</a></li>
+                <li><a href="vendor-dashboard.html" class="active">Vendor Portal</a></li>
+                <li><a href="testing-dashboard.html">Testing QA</a></li>
+                <li><a href="academic-hub.html" class="nav-btn">Sem 5 Hub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-header">
+            <div class="container">
+                <span class="hero-tag">VENDOR OPERATIONS</span>
+                <h1 class="hero-title" style="font-size: 3.5rem;">Partner <span class="italic">Growth Engine</span></h1>
+                <p class="hero-lead">Direct contracts without predatory middlemen. 100% guaranteed payment release upon verified milestone completion.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 2rem 0;">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Verified Vendors</div>
+                    <div class="stat-value" id="vendor-total-count">5</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Curated across Western India</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Net Partner Payouts</div>
+                    <div class="stat-value" id="vendor-payout-total">₹1,00,000</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">90% directly to vendor accounts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Platform Take Rate</div>
+                    <div class="stat-value" style="color: #d2b48c;">10.0%</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Transparent flat fee (Slide 11)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Satisfaction</div>
+                    <div class="stat-value" style="color: #81c784;">94.8%</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Verified client post-event score</div>
+                </div>
+            </div>
+
+            <!-- Active Vendor Profiles -->
+            <div class="section-heading" style="margin-bottom: 1.5rem;">
+                <h2 class="title-serif" style="font-size: 2rem;">Lumina Partner Network Directory</h2>
+                <p class="subtitle">Live registered vendor models managed by Java FileDataManager.</p>
+            </div>
+
+            <div class="table-container">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th>Partner ID</th>
+                            <th>Brand & Specialist</th>
+                            <th>Service Category</th>
+                            <th>Location</th>
+                            <th>Starting Price</th>
+                            <th>Rating</th>
+                            <th>Review Count</th>
+                            <th>Compliance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vendor-list-body">
+                        <tr>
+                            <td colspan="8" style="text-align: center; padding: 2rem;">Loading registered partners...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Authentic Verified Reviews Section -->
+            <div class="section-heading" style="margin-bottom: 1.5rem;">
+                <h2 class="title-serif" style="font-size: 2rem;">Verified Client Reviews (Anti-Fraud Verified)</h2>
+                <p class="subtitle">Every review is cryptographically linked to a verified Lumina booking ID, strictly forbidding counterfeit evaluations.</p>
+            </div>
+
+            <div id="reviews-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <script src="marketplace-api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadVendors();
+            await loadReviews();
+        });
+
+        async function loadVendors() {
+            const vendors = await fetchLuminaVendors();
+            const tbody = document.getElementById('vendor-list-body');
+            if (!vendors || vendors.length === 0) return;
+
+            document.getElementById('vendor-total-count').innerText = vendors.length;
+
+            tbody.innerHTML = vendors.map(v => `
+                <tr>
+                    <td><strong>${v.id}</strong></td>
+                    <td>${v.businessName}<br><span style="font-size: 0.8rem; color: var(--text-muted);">${v.name}</span></td>
+                    <td><span style="color: var(--accent);">${v.category}</span></td>
+                    <td>${v.city}</td>
+                    <td><strong>₹${v.basePrice.toLocaleString()}</strong></td>
+                    <td>★ ${v.rating.toFixed(1)}</td>
+                    <td>${v.reviewCount} reviews</td>
+                    <td><span class="badge badge-verified">✓ DPIIT VERIFIED</span></td>
+                </tr>
+            `).join('');
+        }
+
+        async function loadReviews() {
+            try {
+                const res = await fetch('http://localhost:8080/api/reviews');
+                if (!res.ok) return;
+                const reviews = await res.json();
+                const container = document.getElementById('reviews-container');
+                container.innerHTML = reviews.map(r => `
+                    <div style="background: rgba(45,30,22,0.6); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                            <strong style="color: var(--accent);">${r.hostName}</strong>
+                            <span style="font-size: 0.8rem; background: rgba(129, 199, 132, 0.2); color: #81c784; padding: 0.2rem 0.5rem; border-radius: 12px;">✓ Verified Escrow Booking</span>
+                        </div>
+                        <div style="color: #ffd700; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                            ${'★'.repeat(Math.round(r.rating))} (${r.rating.toFixed(1)})
+                        </div>
+                        <p style="font-style: italic; color: var(--text-main); font-size: 0.95rem;">"${r.comment}"</p>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.warn(e);
+            }
+        }
+    </script>
+</body>
+</html>
+

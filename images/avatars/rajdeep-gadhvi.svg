@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2b1f"/>
+      <stop offset="100%" stop-color="#241710"/>
+    </linearGradient>
+    <linearGradient id="goldRing4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5d2a4"/>
+      <stop offset="50%" stop-color="#d2b48c"/>
+      <stop offset="100%" stop-color="#997b52"/>
+    </linearGradient>
+    <clipPath id="circleClip4">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="url(#goldRing4)" />
+  <circle cx="100" cy="100" r="93" fill="url(#bgGrad4)" />
+  
+  <g clip-path="url(#circleClip4)">
+    <!-- Fine Knit Merino Wool Sweater in Deep Walnut with V-neck shirt -->
+    <path d="M30 210 L64 148 L100 162 L136 148 L170 210 Z" fill="#2d1c14"/>
+    <polygon points="84,148 116,148 100,166" fill="#f5f0e6"/>
+    <path d="M88 152 L100 168 L112 152" stroke="#d2b48c" stroke-width="1.5" fill="none"/>
+    <!-- Neck -->
+    <rect x="86" y="118" width="28" height="32" rx="3" fill="#d29f74"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="94" rx="34" ry="40" fill="#e2b085"/>
+    <!-- Ears -->
+    <circle cx="65" cy="95" r="7" fill="#d29f74"/>
+    <circle cx="135" cy="95" r="7" fill="#d29f74"/>
+    <!-- Wavy Sweep Hair Style -->
+    <path d="M64 88 C62 58 75 48 98 48 C122 48 138 56 136 86 C126 70 110 66 98 68 C82 66 72 74 64 88 Z" fill="#261710"/>
+    <path d="M72 65 C85 58 105 58 120 64" stroke="#3d261a" stroke-width="2.5" fill="none"/>
+    <!-- Eyebrows -->
+    <path d="M78 85 Q88 82 95 86" stroke="#261710" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M122 85 Q112 82 105 86" stroke="#261710" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Eyes -->
+    <ellipse cx="86" cy="93" rx="4" ry="2.5" fill="#261710"/>
+    <ellipse cx="114" cy="93" rx="4" ry="2.5" fill="#261710"/>
+    <!-- Nose -->
+    <path d="M100 93 L97 106 L103 106" stroke="#c49064" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Warm Welcoming Expression -->
+    <path d="M88 116 Q100 123 112 116" stroke="#8c5d39" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
+

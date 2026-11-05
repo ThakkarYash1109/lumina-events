@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Partners | Lumina Events</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">LUMINA</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Events</a></li>
+                <li><a href="vendors.html" class="active">Vendors</a></li>
+                <li><a href="host-dashboard.html">Host Portal</a></li>
+                <li><a href="vendor-dashboard.html">Vendor Portal</a></li>
+                <li><a href="testing-dashboard.html">Testing QA</a></li>
+                <li><a href="academic-hub.html" class="nav-btn">Sem 5 Hub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="height: 60vh;">
+            <div class="hero-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80"
+                alt="Vendors Background" class="hero-background">
+            <div class="container hero-content">
+                <span class="hero-tag">CURATED PARTNERS</span>
+                <h1 class="hero-title" style="font-size: 5rem;">
+                    Elite <span class="italic">Vendors</span> <br>
+                    for Your Vision.
+                </h1>
+            </div>
+        </section>
+
+        <!-- Vendor Selection Info -->
+        <section class="schedule-section">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h2 class="title-serif">Your Trusted Partners</h2>
+                    <p class="subtitle">Select from our exclusive network of premium service providers.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="filter-controls categories-nav" style="justify-content: center;">
+                    <input type="radio" name="vendor-filter" id="all-vendors" checked>
+                    <label for="all-vendors">All</label>
+                    <input type="radio" name="vendor-filter" id="catering">
+                    <label for="catering">Catering</label>
+                    <input type="radio" name="vendor-filter" id="florals">
+                    <label for="florals">Florals</label>
+                    <input type="radio" name="vendor-filter" id="photography">
+                    <label for="photography">Photography</label>
+                    <input type="radio" name="vendor-filter" id="entertainment">
+                    <label for="entertainment">Entertainment</label>
+                    <input type="radio" name="vendor-filter" id="venue">
+                    <label for="venue">Venues</label>
+                </div>
+
+                <!-- Vendors Grid -->
+                <div class="vendors-grid" id="vendors-grid">
+                    <!-- Catering Vendors -->
+                    <div class="vendor-card catering">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80"
+                                alt="Gourmet Delights">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">CATERING</span>
+                            <h3>Gourmet Delights</h3>
+                            <p class="vendor-specialty">Michelin-Star Cuisine</p>
+                            <p class="vendor-desc">World-class culinary experiences with award-winning chefs from across
+                                the globe.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.9</span>
+                                <span class="vendor-price">₹5,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card catering">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
+                                alt="Flavor Symphony">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">CATERING</span>
+                            <h3>Flavor Symphony</h3>
+                            <p class="vendor-specialty">Fusion Fine Dining</p>
+                            <p class="vendor-desc">Innovative fusion cuisine that harmonizes flavors from around the
+                                world.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.8</span>
+                                <span class="vendor-price">₹3,50,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card catering">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+                                alt="Royal Feast Co.">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">CATERING</span>
+                            <h3>Royal Feast Co.</h3>
+                            <p class="vendor-specialty">Traditional & Royal</p>
+                            <p class="vendor-desc">Authentic royal cuisines with a modern twist, fit for royalty.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.7</span>
+                                <span class="vendor-price">₹2,50,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floral Vendors -->
+                    <div class="vendor-card florals">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=600&q=80"
+                                alt="Bloom Artistry">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">FLORALS</span>
+                            <h3>Bloom Artistry</h3>
+                            <p class="vendor-specialty">Bespoke Installations</p>
+                            <p class="vendor-desc">Living art installations that transform venues into botanical
+                                wonderlands.</p>
+                            <div class="vendor-rating">
+                                <span>★ 5.0</span>
+                                <span class="vendor-price">₹1,50,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card florals">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80"
+                                alt="Petals & Co.">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">FLORALS</span>
+                            <h3>Petals & Co.</h3>
+                            <p class="vendor-specialty">Seasonal Collections</p>
+                            <p class="vendor-desc">Exquisite floral designs using the finest seasonal blooms from around
+                                the world.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.9</span>
+                                <span class="vendor-price">₹1,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card florals">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=600&q=80"
+                                alt="Wild Meadow">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">FLORALS</span>
+                            <h3>Wild Meadow</h3>
+                            <p class="vendor-specialty">Organic & Wild</p>
+                            <p class="vendor-desc">Natural, organic floral arrangements with a wild, romantic aesthetic.
+                            </p>
+                            <div class="vendor-rating">
+                                <span>★ 4.8</span>
+                                <span class="vendor-price">₹80,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photography Vendors -->
+                    <div class="vendor-card photography">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80"
+                                alt="Lumière Studios">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">PHOTOGRAPHY</span>
+                            <h3>Lumière Studios</h3>
+                            <p class="vendor-specialty">Cinematic Excellence</p>
+                            <p class="vendor-desc">Award-winning cinematic photography that tells your story like a
+                                film.</p>
+                            <div class="vendor-rating">
+                                <span>★ 5.0</span>
+                                <span class="vendor-price">₹2,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card photography">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80"
+                                alt="Frame & Focus">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">PHOTOGRAPHY</span>
+                            <h3>Frame & Focus</h3>
+                            <p class="vendor-specialty">Editorial Style</p>
+                            <p class="vendor-desc">High-end editorial photography with a fashion-forward aesthetic.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.9</span>
+                                <span class="vendor-price">₹1,50,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card photography">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80"
+                                alt="Captured Moments">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">PHOTOGRAPHY</span>
+                            <h3>Captured Moments</h3>
+                            <p class="vendor-specialty">Documentary Approach</p>
+                            <p class="vendor-desc">Authentic, unposed capturing of every precious moment as it unfolds.
+                            </p>
+                            <div class="vendor-rating">
+                                <span>★ 4.8</span>
+                                <span class="vendor-price">₹1,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entertainment Vendors -->
+                    <div class="vendor-card entertainment">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=600&q=80"
+                                alt="Melody Masters">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">ENTERTAINMENT</span>
+                            <h3>Melody Masters</h3>
+                            <p class="vendor-specialty">Live Symphony</p>
+                            <p class="vendor-desc">World-class musicians and symphony orchestras for grand celebrations.
+                            </p>
+                            <div class="vendor-rating">
+                                <span>★ 5.0</span>
+                                <span class="vendor-price">₹5,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card entertainment">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80"
+                                alt="DJ Prism">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">ENTERTAINMENT</span>
+                            <h3>DJ Prism</h3>
+                            <p class="vendor-specialty">Electronic & Fusion</p>
+                            <p class="vendor-desc">International DJs and fusion performers who set the dance floor
+                                ablaze.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.9</span>
+                                <span class="vendor-price">₹1,50,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card entertainment">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=600&q=80"
+                                alt="Cultural Ensemble">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">ENTERTAINMENT</span>
+                            <h3>Cultural Ensemble</h3>
+                            <p class="vendor-specialty">Traditional Performances</p>
+                            <p class="vendor-desc">Traditional dance, music, and cultural performances from renowned
+                                artists.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.8</span>
+                                <span class="vendor-price">₹2,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Venue Vendors -->
+                    <div class="vendor-card venue">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80"
+                                alt="The Grand Palace">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">VENUES</span>
+                            <h3>The Grand Palace</h3>
+                            <p class="vendor-specialty">Royal Heritage</p>
+                            <p class="vendor-desc">Majestic palace venues with centuries of history and grandeur.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.9</span>
+                                <span class="vendor-price">₹10,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card venue">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
+                                alt="Skyline Terrace">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">VENUES</span>
+                            <h3>Skyline Terrace</h3>
+                            <p class="vendor-specialty">Urban Luxury</p>
+                            <p class="vendor-desc">Modern rooftop venues with breathtaking cityscape views.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.8</span>
+                                <span class="vendor-price">₹5,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card venue">
+                        <div class="vendor-img">
+                            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80"
+                                alt="Garden Oasis">
+                        </div>
+                        <div class="vendor-info">
+                            <span class="vendor-tag">VENUES</span>
+                            <h3>Garden Oasis</h3>
+                            <p class="vendor-specialty">Natural Beauty</p>
+                            <p class="vendor-desc">Serene garden and outdoor venues surrounded by natural beauty.</p>
+                            <div class="vendor-rating">
+                                <span>★ 4.7</span>
+                                <span class="vendor-price">₹3,00,000 onwards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Request Summary Display -->
+        <section class="schedule-section" id="event-summary" style="display: none; padding-bottom: 0;">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="card-tag">YOUR VISION</span>
+                    <h2 class="title-serif">Event Details</h2>
+                    <p class="subtitle">A summary of your requirements for organizers</p>
+                </div>
+                <!-- Dynamic Content Container -->
+                <div class="form-grid" id="event-summary-content"
+                    style="background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Vendors Summary -->
+        <section class="booking-cta" id="selected-vendors">
+            <div class="container flex-row">
+                <div class="cta-text">
+                    <h2 class="title-serif">Your Vendor Selection</h2>
+                    <p>Review your chosen partners for this special celebration.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="inquire.html" class="btn btn-primary">Confirm Selection</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Vendors Display -->
+        <section class="schedule-section" id="vendor-selection" style="display: none;">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <h2 class="title-serif">Your Curated Team</h2>
+                    <p class="subtitle">Vendors selected based on your event preferences</p>
+                </div>
+                <div class="selected-vendors-list" id="selected-vendors-list">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">LUMINA</a>
+                    <p class="footer-desc">Curating exceptional experiences and unforgettable moments with unparalleled elegance and precision.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Calendar</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h5 class="footer-heading">Contact</h5>
+                    <ul>
+                        <li><a href="mailto:inquire@luminaevents.com">inquire@luminaevents.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>Beverly Hills, CA 90210</li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h5 class="footer-heading">Follow</h5>
+                    <ul>
+                        <li><a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.5 20H5.5V9H8.5V20M7 7.5A1.5 1.5 0 0 1 5.5 6A1.5 1.5 0 0 1 7 4.5A1.5 1.5 0 0 1 8.5 6A1.5 1.5 0 0 1 7 7.5M10.5 20H13.5V14.5C13.5 13.5 13.8 12.8 14.7 12.8C15.6 12.8 16 13.4 16 14.5V20H19V14C19 11.8 17.8 10.5 15.5 10.5C14 10.5 13.1 11.2 12.5 12V10.7H9.5C9.5 11.5 9.5 20 9.5 20H10.5Z" />
+                                </svg></a></li>
+                        <li><a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16.02 6.02,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16.02,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+                                </svg></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 Lumina Events. Designed for Elegance.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check if form data exists and display selected vendors
+        document.addEventListener('DOMContentLoaded', function () {
+            const formData = sessionStorage.getItem('eventFormData');
+            if (formData) {
+                const data = JSON.parse(formData);
+                console.log('Event planning initialized with:', data);
+
+                // Show event summary section
+                const eventSummary = document.getElementById('event-summary');
+                if (eventSummary) {
+                    eventSummary.style.display = 'block';
+                    displayEventSummary(data);
+                }
+
+                // Show vendor selection section
+                const vendorSelection = document.getElementById('vendor-selection');
+                if (vendorSelection) {
+                    vendorSelection.style.display = 'block';
+                }
+
+                // Auto-select recommended vendors based on event type
+                displayRecommendedVendors(data);
+            }
+        });
+
+        // Display event summary based on form data
+        function displayEventSummary(formData) {
+            const container = document.getElementById('event-summary-content');
+            if (!container) return;
+
+            const elementsList = formData.elements && formData.elements.length > 0
+                ? formData.elements.join(', ') : 'None specified';
+
+            container.innerHTML = `
+                <div class="summary-item">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Event Category</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main);">${formData.eventType || 'Not specified'}</p>
+                </div>
+                <div class="summary-item">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Investment Range</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main);">${formData.budget || 'Not specified'}</p>
+                </div>
+                <div class="summary-item">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Aesthetic Theme</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main);">${formData.aesthetic || 'Not specified'}</p>
+                </div>
+                <div class="summary-item">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Guest Count</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main);">${formData.guestCount || 'Not specified'}</p>
+                </div>
+                <div class="summary-item" style="grid-column: 1 / -1; margin-top: 1rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Essential Elements</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main);">${elementsList}</p>
+                </div>
+                <div class="summary-item" style="grid-column: 1 / -1; margin-top: 1rem;">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">The Visionary Memo</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-main); line-height: 1.6; font-style: italic;">"${formData.visionMemo || 'No vision memo provided.'}"</p>
+                </div>
+            `;
+        }
+
+        // Filter vendors based on selection
+        function filterVendors(category) {
+            const vendors = document.querySelectorAll('.vendor-card');
+
+            vendors.forEach(vendor => {
+                if (category === 'all' || vendor.classList.contains(category)) {
+                    vendor.style.display = 'block';
+                    vendor.style.animation = 'fadeIn 0.5s forwards';
+                } else {
+                    vendor.style.display = 'none';
+                }
+            });
+        }
+
+        // Setup filter event listeners
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterInputs = document.querySelectorAll('input[name="vendor-filter"]');
+            filterInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    const category = this.id.replace('cat-', '');
+                    filterVendors(category === 'all-vendors' ? 'all' : this.id);
+                });
+            });
+        });
+
+        // Display recommended vendors based on event type
+        function displayRecommendedVendors(formData) {
+            const container = document.getElementById('selected-vendors-list');
+            if (!container) return;
+
+            // Determine recommended vendors based on form data
+            const eventType = formData.eventType || '';
+            const budget = formData.budget || '';
+
+            // Sample recommendations
+            const recommendations = [
+                {
+                    name: 'Gourmet Delights',
+                    category: 'Catering',
+                    reason: 'Recommended for ' + eventType + ' events'
+                },
+                {
+                    name: 'Bloom Artistry',
+                    category: 'Florals',
+                    reason: 'Matches your aesthetic preferences'
+                },
+                {
+                    name: 'Lumière Studios',
+                    category: 'Photography',
+                    reason: 'Top-rated for ' + eventType + ' coverage'
+                }
+            ];
+
+            let html = '<div class="calendar-grid">';
+            recommendations.forEach(rec => {
+                html += `
+                    <div class="calendar-item">
+                        <div class="date-box">
+                            <span class="day">✓</span>
+                            <span class="tag">SELECTED</span>
+                        </div>
+                        <div class="calendar-info">
+                            <h3>${rec.name}</h3>
+                            <p>${rec.category}</p>
+                            <p style="color: var(--accent); font-size: 0.85rem;">${rec.reason}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
+        }
+    </script>
+    <script src="chat-widget.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+</body>
+
+</html>

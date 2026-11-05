@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2b1f"/>
+      <stop offset="100%" stop-color="#241710"/>
+    </linearGradient>
+    <linearGradient id="goldRing2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5d2a4"/>
+      <stop offset="50%" stop-color="#d2b48c"/>
+      <stop offset="100%" stop-color="#997b52"/>
+    </linearGradient>
+    <clipPath id="circleClip2">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="url(#goldRing2)" />
+  <circle cx="100" cy="100" r="93" fill="url(#bgGrad2)" />
+  
+  <g clip-path="url(#circleClip2)">
+    <!-- Charcoal suit jacket & mandarin collar -->
+    <path d="M30 210 L68 148 L100 160 L132 148 L170 210 Z" fill="#201813"/>
+    <path d="M80 148 L100 160 L120 148 L100 210 Z" fill="#2d1f17"/>
+    <rect x="88" y="142" width="24" height="12" rx="3" fill="#d2b48c"/>
+    <polygon points="90,146 110,146 100,158" fill="#f5f0e6"/>
+    <!-- Neck -->
+    <rect x="86" y="118" width="28" height="30" rx="3" fill="#c99569"/>
+    <!-- Head -->
+    <ellipse cx="100" cy="94" rx="33" ry="39" fill="#d9a477"/>
+    <!-- Ears -->
+    <circle cx="66" cy="95" r="7" fill="#c99569"/>
+    <circle cx="134" cy="95" r="7" fill="#c99569"/>
+    <!-- Sleek Parted Side Hair -->
+    <path d="M65 85 C64 55 85 48 102 48 C122 48 136 57 135 84 C128 70 114 68 96 68 C80 68 70 74 65 85 Z" fill="#1f140e"/>
+    <!-- Subtle Modern Beard Outline -->
+    <path d="M72 98 C74 125 84 135 100 135 C116 135 126 125 128 98 C122 108 114 114 100 114 C86 114 78 108 72 98 Z" fill="#231710" opacity="0.85"/>
+    <!-- Eyebrows -->
+    <path d="M78 86 Q88 83 95 86" stroke="#1f140e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M122 86 Q112 83 105 86" stroke="#1f140e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Eyes -->
+    <ellipse cx="86" cy="93" rx="4" ry="2.5" fill="#1f140e"/>
+    <ellipse cx="114" cy="93" rx="4" ry="2.5" fill="#1f140e"/>
+    <!-- Nose -->
+    <path d="M100 93 L97 105 L103 105" stroke="#ba8558" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Mouth -->
+    <path d="M91 117 Q100 122 109 117" stroke="#1f140e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
+

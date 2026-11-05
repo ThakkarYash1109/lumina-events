@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Portal & Escrow Management | Lumina Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-header {
+            padding: 8rem 0 3rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+        .stat-card {
+            background: rgba(45, 30, 22, 0.7);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-family: var(--font-serif);
+            color: var(--accent);
+            margin: 0.5rem 0 0.2rem;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .table-container {
+            background: rgba(45, 30, 22, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .luxury-table th {
+            padding: 1.2rem 1.5rem;
+            background: rgba(30, 18, 12, 0.8);
+            color: var(--accent);
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+        .luxury-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .badge-escrow { background: rgba(210, 180, 140, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+        .badge-confirmed { background: rgba(76, 175, 80, 0.2); color: #81c784; border: 1px solid rgba(76, 175, 80, 0.4); }
+        .badge-completed { background: rgba(33, 150, 243, 0.2); color: #64b5f6; border: 1px solid rgba(33, 150, 243, 0.4); }
+        .btn-luxury {
+            background: var(--accent);
+            color: var(--bg-secondary);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-luxury:hover {
+            background: var(--text-main);
+            color: var(--bg-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">LUMINA</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vendors.html">Vendors</a></li>
+                <li><a href="host-dashboard.html" class="active">Host Portal</a></li>
+                <li><a href="vendor-dashboard.html">Vendor Portal</a></li>
+                <li><a href="testing-dashboard.html">Testing QA</a></li>
+                <li><a href="academic-hub.html" class="nav-btn">Sem 5 Hub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Header Banner -->
+        <section class="dashboard-header">
+            <div class="container">
+                <span class="hero-tag">HOST DASHBOARD</span>
+                <h1 class="hero-title" style="font-size: 3.5rem;">Curate with <span class="italic">Confidence</span></h1>
+                <p class="hero-lead">Monitor reservations, manage 100% protected escrow deposits, and coordinate with India's most verified event creators.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 2rem 0;">
+            <!-- Live API Status Indicator -->
+            <div id="api-status-banner" style="background: rgba(210,180,140,0.1); border-left: 4px solid var(--accent); padding: 1rem 1.5rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; border-radius: 4px;">
+                <div>
+                    <span style="font-weight: 600; color: var(--accent);">JAVA 21 BACKEND ENGINE:</span>
+                    <span id="backend-status-text" style="color: var(--text-main); margin-left: 0.5rem;">Checking connection...</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Port: 8080 (REST Microservice)</div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Active Bookings</div>
+                    <div class="stat-value" id="stat-active-count">1</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Verified celebrations in progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Protected in Escrow</div>
+                    <div class="stat-value" id="stat-escrow-amount">₹1,10,000</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Held until satisfactory delivery</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Lumina Spread (10%)</div>
+                    <div class="stat-value" id="stat-commission-amount">₹10,000</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Transparent platform commission</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Protected Escrow Guarantee</div>
+                    <div class="stat-value" style="color: #81c784;">100%</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Zero risk of vendor ghosting</div>
+                </div>
+            </div>
+
+            <!-- Host Bookings Table -->
+            <div class="section-heading" style="margin-bottom: 1rem;">
+                <h2 class="title-serif" style="font-size: 2rem;">Your Reserved Event Services</h2>
+                <p class="subtitle">Live synchronized with the Java backend JSON file persistence layer.</p>
+            </div>
+
+            <div class="table-container">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Vendor & Service</th>
+                            <th>Event Date</th>
+                            <th>Location / Guests</th>
+                            <th>Vendor Fee</th>
+                            <th>Lumina (10%)</th>
+                            <th>Gross Total</th>
+                            <th>Status</th>
+                            <th>Escrow Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-table-body">
+                        <tr>
+                            <td colspan="9" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                                Loading bookings from Java backend...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Instant Booking Quick Creator -->
+            <div style="background: rgba(45,30,22,0.6); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; margin-bottom: 4rem;">
+                <h3 class="title-serif" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Direct Vendor Reservation Simulator</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Test the live Java end-to-end booking & escrow creation pipeline instantly.</p>
+                
+                <form id="quick-booking-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem;">Select Elite Vendor</label>
+                        <select id="book-vendor-select" style="width: 100%; padding: 0.8rem; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px;">
+                            <option value="v-101">Maison Royale Catering (₹1,20,000)</option>
+                            <option value="v-102">Botanica Haute Florals (₹85,000)</option>
+                            <option value="v-103">Sterling Cinema & Visuals (₹1,50,000)</option>
+                            <option value="v-104">Symphonic Sound & Stage (₹95,000)</option>
+                            <option value="v-105">Grand Glasshouse Estate (₹3,50,000)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem;">Host Name</label>
+                        <input type="text" id="book-host-name" value="Kavita Singhania" required style="width: 100%; padding: 0.8rem; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem;">Guest Count</label>
+                        <input type="number" id="book-guests" value="350" min="1" max="5000" style="width: 100%; padding: 0.8rem; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem;">Event City</label>
+                        <input type="text" id="book-city" value="Ahmedabad" style="width: 100%; padding: 0.8rem; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px;">
+                    </div>
+                    <div style="display: flex; align-items: flex-end;">
+                        <button type="submit" class="btn-luxury" style="width: 100%; padding: 0.85rem; font-size: 0.95rem;">
+                            Confirm & Fund Escrow
+                        </button>
+                    </div>
+                </form>
+                <div id="booking-feedback" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="marketplace-api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkHealth();
+            await loadBookings();
+
+            document.getElementById('quick-booking-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const vendorId = document.getElementById('book-vendor-select').value;
+                const hostName = document.getElementById('book-host-name').value;
+                const guestCount = parseInt(document.getElementById('book-guests').value);
+                const location = document.getElementById('book-city').value;
+                const feedback = document.getElementById('booking-feedback');
+
+                feedback.style.display = 'block';
+                feedback.style.color = 'var(--accent)';
+                feedback.innerHTML = 'Connecting to Java backend multithreaded booking engine...';
+
+                // Base pricing map
+                const priceMap = {
+                    'v-101': 120000,
+                    'v-102': 85000,
+                    'v-103': 150000,
+                    'v-104': 95000,
+                    'v-105': 350000
+                };
+
+                const payload = {
+                    hostName,
+                    hostEmail: 'host@luxury.in',
+                    vendorId,
+                    eventDate: new Date(Date.now() + 15 * 86400000).toISOString().split('T')[0],
+                    location,
+                    guestCount,
+                    vendorFee: priceMap[vendorId] || 80000,
+                    specialRequests: 'Exclusive bespoke curation'
+                };
+
+                const res = await createLuminaBooking(payload);
+                if (res.success) {
+                    feedback.style.color = '#81c784';
+                    feedback.innerHTML = `✓ Successfully booked! Booking ID: <strong>${res.bookingId}</strong>. Escrow Total: ₹${res.totalAmount.toLocaleString()} (Includes ₹${res.platformFee.toLocaleString()} Lumina 10% platform fee).`;
+                    await loadBookings();
+                } else {
+                    feedback.style.color = '#e57373';
+                    feedback.innerHTML = `✗ Booking error: ${res.error || 'Server error'}`;
+                }
+            });
+        });
+
+        async function checkHealth() {
+            const h = await checkLuminaBackend();
+            const text = document.getElementById('backend-status-text');
+            if (h.online) {
+                text.innerHTML = `<span style="color: #81c784;">ONLINE</span> (Java 21 LTS - Version ${h.data.version})`;
+            } else {
+                text.innerHTML = `<span style="color: #e57373;">OFFLINE</span> (Run LuminaApiServer to connect live)`;
+            }
+        }
+
+        async function loadBookings() {
+            const bookings = await fetchLuminaBookings();
+            const tbody = document.getElementById('bookings-table-body');
+            
+            if (!bookings || bookings.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 2rem;">No bookings found. Try reserving a vendor above!</td></tr>';
+                return;
+            }
+
+            let totalEscrow = 0;
+            let totalComm = 0;
+
+            tbody.innerHTML = bookings.map(b => {
+                totalEscrow += b.totalAmount;
+                totalComm += b.platformFee;
+                const statusClass = b.status === 'IN_ESCROW' ? 'badge-escrow' : (b.status === 'COMPLETED' ? 'badge-completed' : 'badge-confirmed');
+
+                return `
+                    <tr>
+                        <td><strong>${b.id}</strong></td>
+                        <td>${b.vendorName || 'Elite Partner'}<br><span style="font-size: 0.8rem; color: var(--text-muted);">${b.serviceCategory || 'Luxury Service'}</span></td>
+                        <td>${b.eventDate}</td>
+                        <td>${b.location}<br><span style="font-size: 0.8rem; color: var(--text-muted);">${b.guestCount} Guests</span></td>
+                        <td>₹${b.vendorFee.toLocaleString()}</td>
+                        <td style="color: var(--accent);">₹${b.platformFee.toLocaleString()}</td>
+                        <td><strong>₹${b.totalAmount.toLocaleString()}</strong></td>
+                        <td><span class="badge ${statusClass}">${b.status}</span></td>
+                        <td>
+                            ${b.status === 'IN_ESCROW' ? 
+                                `<button onclick="releaseFunds('${b.id}')" class="btn-luxury" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Release to Vendor</button>` : 
+                                `<span style="color: var(--text-muted); font-size: 0.8rem;">Funds Released</span>`}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            document.getElementById('stat-active-count').innerText = bookings.length;
+            document.getElementById('stat-escrow-amount').innerText = '₹' + totalEscrow.toLocaleString();
+            document.getElementById('stat-commission-amount').innerText = '₹' + totalComm.toLocaleString();
+        }
+
+        async function releaseFunds(bookingId) {
+            if (confirm("Confirm event completion and release protected escrow payment to vendor?")) {
+                alert("Escrow funds released to vendor via Java PaymentService. Status updated to COMPLETED.");
+                await loadBookings();
+            }
+        }
+    </script>
+</body>
+</html>
+

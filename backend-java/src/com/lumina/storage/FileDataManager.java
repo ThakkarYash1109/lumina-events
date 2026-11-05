@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * satisfying the academic requirement for File Management and Data saving/loading.
  */
 public class FileDataManager {
-    private static final String DATA_FILE = "lumina_marketplace_data.json";
+    private static final String DATA_FILE = System.getenv().getOrDefault("DATA_FILE_PATH", System.getProperty("java.io.tmpdir") + "lumina_marketplace_data.json");
     private static FileDataManager instance;
 
     private final Map<String, VendorUser> vendors = new ConcurrentHashMap<>();

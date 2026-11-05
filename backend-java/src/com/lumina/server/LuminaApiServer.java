@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.*;
+import java.nio.file.*;
 import java.util.concurrent.Executors;
 
 /**
@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
  * on any environment with standard Java 21 LTS installed.
  */
 public class LuminaApiServer {
-    private static final int PORT = 8080;
+    private static final int PORT = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
     private final MarketplaceService marketplaceService = new MarketplaceServiceImpl();
     private final PaymentService paymentService = new PaymentServiceImpl();
 
@@ -33,9 +33,13 @@ public class LuminaApiServer {
         new LuminaApiServer().start();
     }
 
+
     public void start() throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         server.setExecutor(Executors.newFixedThreadPool(10));
+
+        // Serve static files (HTML, CSS, JS, images) from the project root
+        server.createContext("/", new StaticFileHandler());
 
         // CORS and Options handler helper
         server.createContext("/api/health", new HealthHandler());
@@ -52,6 +56,60 @@ public class LuminaApiServer {
         System.out.println("  Server listening on: http://localhost:" + PORT + "/api/health      ");
         System.out.println("==================================================================");
     }
+
+    /** Simple static file handler for serving the frontend */
+    private class StaticFileHandler implements HttpHandler {
+        private final Map<String, String> mimeMap = Map.of(
+                "html", "text/html",
+                "htm", "text/html",
+                "css", "text/css",
+                "js", "application/javascript",
+                "json", "application/json",
+                "png", "image/png",
+                "jpg", "image/jpeg",
+                "jpeg", "image/jpeg",
+                "svg", "image/svg+xml",
+                "gif", "image/gif",
+                "ico", "image/x-icon"
+        );
+
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            if (!"GET".equalsIgnoreCase(exchange.getRequestMethod())) {
+                exchange.sendResponseHeaders(405, -1); // Method Not Allowed
+                return;
+            }
+            String rawPath = exchange.getRequestURI().getPath();
+            // Normalize root request to index.html
+            if (rawPath.equals("/") || rawPath.isEmpty()) {
+                rawPath = "/index.html";
+            }
+            // Prevent directory traversal attacks
+            Path requested = Paths.get(".").normalize().resolve("." + rawPath).normalize();
+            if (!Files.exists(requested) || Files.isDirectory(requested)) {
+                String notFound = "<h1>404 Not Found</h1><p>Resource " + rawPath + " not found.</p>";
+                byte[] bytes = notFound.getBytes(StandardCharsets.UTF_8);
+                exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+                exchange.sendResponseHeaders(404, bytes.length);
+                try (OutputStream os = exchange.getResponseBody()) { os.write(bytes); }
+                return;
+            }
+            // Determine MIME type
+            String ext = "";
+            String name = requested.getFileName().toString();
+            int dot = name.lastIndexOf('.');
+            if (dot >= 0 && dot < name.length() - 1) {
+                ext = name.substring(dot + 1).toLowerCase();
+            }
+            String mime = mimeMap.getOrDefault(ext, "application/octet-stream");
+            exchange.getResponseHeaders().set("Content-Type", mime + "; charset=UTF-8");
+            // Serve file content
+            byte[] data = Files.readAllBytes(requested);
+            exchange.sendResponseHeaders(200, data.length);
+            try (OutputStream os = exchange.getResponseBody()) { os.write(data); }
+        }
+    }
+
 
     private static void setCorsHeaders(HttpExchange exchange) {
         exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");

@@ -11,8 +11,7 @@ WORKDIR /app
 COPY backend-java/src ./src
 
 # Create binary output directory and compile
-RUN mkdir -p bin && \
-    javac -d bin $(find src -name "*.java")
+RUN mkdir -p bin && javac -d bin $(find src -name "*.java")
 
 # Stage 2: Minimal Production Runtime
 FROM eclipse-temurin:21-jre-alpine

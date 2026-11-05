@@ -1,0 +1,39 @@
+[
+  {
+    "id": "TC-SMK-01",
+    "name": "Public Production Health Probe",
+    "category": "Cloud Smoke Test",
+    "method": "GET",
+    "path": "/api/health",
+    "expectedStatus": 200,
+    "expectedBodyContent": "\"status\":\"UP\""
+  },
+  {
+    "id": "TC-SMK-02",
+    "name": "Live Verified Vendor Catalog Query",
+    "category": "Cloud Smoke Test",
+    "method": "GET",
+    "path": "/api/vendors",
+    "expectedStatus": 200,
+    "expectedBodyContent": "Maison Royale Catering"
+  },
+  {
+    "id": "TC-SMK-03",
+    "name": "Live Marketplace Statistics Endpoint",
+    "category": "Cloud Smoke Test",
+    "method": "GET",
+    "path": "/api/stats",
+    "expectedStatus": 200,
+    "expectedBodyContent": "platformCommission"
+  },
+  {
+    "id": "TC-SMK-04",
+    "name": "Live Test Runner Verification",
+    "category": "Cloud Smoke Test",
+    "method": "GET",
+    "path": "/api/tests/run",
+    "expectedStatus": 200,
+    "expectedBodyContent": "\"passPercentage\":100.0"
+  }
+]
+

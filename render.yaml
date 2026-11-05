@@ -1,0 +1,20 @@
+services:
+  # Lumina Java 21 REST API & Microservice
+  - type: web
+    name: lumina-backend
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /api/health
+    envVars:
+      - key: LUMINA_ENV
+        value: production
+      - key: LUMINA_PORT
+        value: 8080
+      - key: ESCROW_SANDBOX_ENABLED
+        value: true
+      - key: ALLOWED_ORIGINS
+        value: "*"
+

@@ -117,3 +117,79 @@ docker compose up -d
 - **1,000 Users (Growth):** ₹3,600 / month (App Runner + RDS db.t4g.micro)
 - **10,000 Users (Scale):** ₹18,800 / month (Auto-scaled ECS + Multi-AZ RDS + CDN)
 
+---
+
+## 8. Live Deployment URLs
+
+| Service | URL | Status |
+| :--- | :--- | :--- |
+| **Frontend (GitHub Pages)** | https://thakkaryash1109.github.io/lumina-events/ | 🟢 Live |
+| **Backend API (Render.com)** | https://lumina-backend.onrender.com/api | 🟢 Live |
+| **Health Endpoint** | https://lumina-backend.onrender.com/api/health | 🟢 Live |
+| **GitHub Repository** | https://github.com/ThakkarYash1109/lumina-events | 🟢 Public |
+
+> **Note:** The Render.com free tier spins down after 15 minutes of inactivity. The first request after sleep may take 30–60 seconds to warm up. This is expected behavior on free-tier cloud hosting.
+
+---
+
+## 9. Cloud Deployment Architecture (Render.com + GitHub Pages)
+
+```
+[ User Browser / Mobile App ]
+         │
+         ▼
+[ GitHub Pages CDN — Static Frontend (HTTPS) ]
+  thakkaryash1109.github.io/lumina-events/
+         │  (fetch API calls)
+         ▼
+[ Render.com — Docker Container (Free Tier, Singapore Region) ]
+  lumina-backend.onrender.com
+  ├── /api/health    → {"status":"UP"}
+  ├── /api/vendors   → Vendor catalogue JSON
+  ├── /api/bookings  → Booking records
+  ├── /api/payments  → Escrow transactions
+  ├── /api/reviews   → Verified reviews
+  ├── /api/stats     → Platform analytics
+  └── /api/tests/run → 30-test automated suite
+         │
+         ▼
+[ File-Based JSON Persistence — lumina_marketplace_data.json ]
+```
+
+**Key Cloud Features:**
+- 🔒 HTTPS enforced on all endpoints (TLS 1.3)
+- 🐳 Docker containerized Java 21 backend (multi-stage Alpine build)
+- ⚙️ GitHub Actions CI/CD — auto-build & test on every `git push`
+- 🌏 Singapore region — lowest latency for Indian users
+- 🔄 Auto-deploy from `main` branch on Render.com
+- 📊 Health checks every 30 seconds with 3-retry policy
+
+---
+
+## 10. Environment Variables (Production)
+
+Set these in the Render.com dashboard under **Environment → Environment Variables**:
+
+| Key | Value | Description |
+| :--- | :--- | :--- |
+| `LUMINA_ENV` | `production` | Runtime environment flag |
+| `LUMINA_PORT` | `8080` | Backend HTTP port |
+| `ESCROW_SANDBOX_ENABLED` | `true` | Keeps payments in sandbox test mode |
+| `ALLOWED_ORIGINS` | `*` | CORS policy (restrict to your domain in production) |
+
+> ⚠️ Never commit `.env` files or real API keys to the repository. Use `.env.example` as a template only.
+
+---
+
+## 11. CI/CD Pipeline
+
+GitHub Actions workflow (`.github/workflows/ci.yml`) automatically runs on every push to `main`:
+
+1. ✅ **Checkout** — clones repository
+2. ✅ **JDK 21 Setup** — installs Temurin OpenJDK 21
+3. ✅ **Compile** — `javac` compiles all Java sources
+4. ✅ **30-Test Suite** — runs `LuminaTestSuite.java` (must be 100% pass rate)
+5. ✅ **Docker Build** — verifies multi-stage Dockerfile builds without errors
+
+Render.com watches the `main` branch and auto-deploys whenever a new commit is pushed and the CI pipeline passes.
+

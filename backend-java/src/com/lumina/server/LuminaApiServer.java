@@ -85,7 +85,8 @@ public class LuminaApiServer {
                 rawPath = "/index.html";
             }
             // Prevent directory traversal attacks
-            Path requested = Paths.get(".").normalize().resolve("." + rawPath).normalize();
+            Path base = Paths.get("").toAbsolutePath();
+            Path requested = base.resolve(rawPath.startsWith("/") ? rawPath.substring(1) : rawPath).normalize();
             if (!Files.exists(requested) || Files.isDirectory(requested)) {
                 String notFound = "<h1>404 Not Found</h1><p>Resource " + rawPath + " not found.</p>";
                 byte[] bytes = notFound.getBytes(StandardCharsets.UTF_8);

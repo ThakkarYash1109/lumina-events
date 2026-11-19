@@ -15,6 +15,15 @@
     "@capacitor/android": "^6.0.0",
     "@capacitor/cli": "^6.0.0",
     "@capacitor/core": "^6.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThakkarYash1109/lumina-events.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ThakkarYash1109/lumina-events/issues"
+  },
+  "homepage": "https://github.com/ThakkarYash1109/lumina-events#readme"
 }
-

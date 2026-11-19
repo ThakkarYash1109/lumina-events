@@ -17,6 +17,12 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.nio.file.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.Executors;
 
 /**
@@ -59,18 +65,18 @@ public class LuminaApiServer {
 
     /** Simple static file handler for serving the frontend */
     private class StaticFileHandler implements HttpHandler {
-        private final Map<String, String> mimeMap = Map.of(
-                "html", "text/html",
-                "htm", "text/html",
-                "css", "text/css",
-                "js", "application/javascript",
-                "json", "application/json",
-                "png", "image/png",
-                "jpg", "image/jpeg",
-                "jpeg", "image/jpeg",
-                "svg", "image/svg+xml",
-                "gif", "image/gif",
-                "ico", "image/x-icon"
+        private final Map<String, String> mimeMap = Map.ofEntries(
+                Map.entry("html", "text/html"),
+                Map.entry("htm", "text/html"),
+                Map.entry("css", "text/css"),
+                Map.entry("js", "application/javascript"),
+                Map.entry("json", "application/json"),
+                Map.entry("png", "image/png"),
+                Map.entry("jpg", "image/jpeg"),
+                Map.entry("jpeg", "image/jpeg"),
+                Map.entry("svg", "image/svg+xml"),
+                Map.entry("gif", "image/gif"),
+                Map.entry("ico", "image/x-icon")
         );
 
         @Override

@@ -1,9 +1,8 @@
 // Lumina E-Commerce & Java Backend Integration Layer
 // Depends on env-config.js (or defaults to auto-resolved endpoint)
 if (typeof LUMINA_API_BASE === 'undefined') {
-    var LUMINA_API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
-        ? 'http://localhost:8080/api'
-        : 'https://lumina-api.onrender.com/api';
+    // Use relative same‑origin path for both local dev and deployed Render service
+    var LUMINA_API_BASE = '/api';
 }
 
 // Check backend health
